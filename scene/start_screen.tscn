@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://5i3rrlixyv0v"]
+
+[ext_resource type="Texture2D" uid="uid://dr3f1ycwehlx3" path="res://textures/start.png" id="1_bkasl"]
+[ext_resource type="AudioStream" uid="uid://bgb16o834fwqt" path="res://sounds/music/menu.ogg" id="2_7fpps"]
+[ext_resource type="FontFile" uid="uid://bohj6l4namqhr" path="res://fonts/Ac437_PhoenixEGA_8x8.ttf" id="2_d0gqf"]
+[ext_resource type="AudioStream" uid="uid://fhkwqe8a8s5h" path="res://sounds/prompt.wav" id="4_1x4dm"]
+
+[sub_resource type="GDScript" id="GDScript_0nqj6"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	await get_tree().create_timer(0.5).timeout
+	$prompt.play()
+	$CanvasLayer/prompttext.visible = true
+	await get_tree().create_timer(3).timeout
+	$CanvasLayer/prompttext.visible = false
+	$CanvasLayer/logo.visible = true
+	$CanvasLayer/start_game_button.visible = true
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_dpgbt"]
+script/source = "extends Button
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func pressed():
+	LevelSwitch.switch_to_main()
+"
+
+[node name="start_screen" type="Node2D"]
+script = SubResource("GDScript_0nqj6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -210.0
+offset_top = -64.0
+offset_right = 2212.0
+offset_bottom = 1224.0
+color = Color(0, 0, 0, 1)
+
+[node name="logo" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1_bkasl")
+metadata/_edit_use_anchors_ = true
+
+[node name="start_game_button" type="Button" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.160938
+anchor_top = 0.800926
+anchor_right = 0.836979
+anchor_bottom = 0.937037
+script = SubResource("GDScript_dpgbt")
+metadata/_edit_use_anchors_ = true
+
+[node name="prompttext" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_top = 331.0
+offset_right = 1919.0
+offset_bottom = 1079.0
+theme_override_fonts/normal_font = ExtResource("2_d0gqf")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]THIS GAME IS PLAYED ONLY USING THE MOUSE
+ 
+ 
+ 
+ 
+ 
+TRY CLICKING ON THINGS!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7fpps")
+autoplay = true
+
+[node name="prompt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1x4dm")
+
+[connection signal="pressed" from="CanvasLayer/start_game_button" to="CanvasLayer/start_game_button" method="pressed"]

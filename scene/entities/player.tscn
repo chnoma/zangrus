@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxo23sefwo1gv"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_7ul7f"]
+[ext_resource type="AudioStream" uid="uid://cn0eq6sakj8k7" path="res://sounds/player/wall.wav" id="2_hulfm"]
+[ext_resource type="AudioStream" uid="uid://ckd0tpfaylmrl" path="res://sounds/player/step.wav" id="3_lxyt2"]
+[ext_resource type="AudioStream" uid="uid://dr3ctnn275h1k" path="res://sounds/player/turn.wav" id="4_lb0jt"]
+[ext_resource type="AudioStream" uid="uid://jbbhfij5dgui" path="res://sounds/player/playerdeath.wav" id="5_321bs"]
+[ext_resource type="AudioStream" uid="uid://bvjbtqfxy6gb8" path="res://sounds/hb.wav" id="6_yd5dx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2cdnu"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="player" type="Node3D"]
+script = ExtResource("1_7ul7f")
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+fov = 90.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+
+[node name="LeftRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collision_mask = 515
+collide_with_areas = true
+
+[node name="RightRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+collision_mask = 515
+collide_with_areas = true
+
+[node name="BackRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1.31134e-07, 1, 0, 4.37114e-08, -3.55271e-15, -1, -1, 1.31134e-07, -4.37114e-08, 0, 0, 0)
+collision_mask = 515
+collide_with_areas = true
+
+[node name="ForwardRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(-2.18557e-07, -1, 0, -4.37114e-08, 1.17328e-14, -1, 1, -2.18557e-07, -4.37114e-08, 0, 0, 0)
+collision_mask = 515
+collide_with_areas = true
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="HitWall" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("2_hulfm")
+
+[node name="Step" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_lxyt2")
+
+[node name="Turn" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("4_lb0jt")
+volume_db = 5.217
+
+[node name="Death" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("5_321bs")
+
+[node name="Heartbeat" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("6_yd5dx")
+attenuation_model = 3
+volume_db = 0.795
+max_db = 6.0
+panning_strength = 0.0
+area_mask = 0
+attenuation_filter_db = 0.0
+
+[node name="heartbeat_timer" type="Timer" parent="."]
+wait_time = 0.806
+autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8388864
+collision_mask = 8388608
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_2cdnu")
+
+[connection signal="timeout" from="heartbeat_timer" to="SFX/Heartbeat" method="play"]

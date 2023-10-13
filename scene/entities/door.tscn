@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=3 uid="uid://dn8ud10ob286u"]
+
+[ext_resource type="Texture2D" uid="uid://6nu227o545rs" path="res://textures/environment/doors/standard/door_unlocked.png" id="1_yhtac"]
+[ext_resource type="Script" path="res://scripts/env/door.gd" id="2_harqp"]
+[ext_resource type="Script" path="res://scripts/source_interactive.gd" id="3_pohue"]
+[ext_resource type="AudioStream" uid="uid://bbav8nrqfidlx" path="res://sounds/denied.wav" id="4_pivfk"]
+[ext_resource type="AudioStream" uid="uid://ckcht712fkw31" path="res://sounds/dooropen.wav" id="5_y7sgd"]
+[ext_resource type="AudioStream" uid="uid://cdsxby4pnti61" path="res://sounds/doorclose.wav" id="6_qlfs0"]
+[ext_resource type="AudioStream" uid="uid://cmxfevlkqspl4" path="res://sounds/door/doorbroken2.wav" id="7_bhw7r"]
+[ext_resource type="AudioStream" uid="uid://d3tny42api8kw" path="res://sounds/door/doorbroken3.wav" id="8_brpbs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cw786"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_yhtac")
+texture_filter = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_5k3qc"]
+material = SubResource("StandardMaterial3D_cw786")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yxko"]
+size = Vector3(1, 1, 0.0348887)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cmee"]
+size = Vector3(0.0813101, 0.137135, 0.0999311)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_api8q"]
+
+[node name="Door" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_5k3qc")
+script = ExtResource("2_harqp")
+
+[node name="blocker" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blocker"]
+shape = SubResource("BoxShape3D_0yxko")
+
+[node name="clicker" type="Area3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.431877, -0.0459872, 0.00382277)
+collision_layer = 8
+collision_mask = 8
+collision_priority = 999.0
+script = ExtResource("3_pohue")
+max_use_distance = 1.3
+target = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="clicker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0197571)
+shape = SubResource("BoxShape3D_1cmee")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="denied" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("4_pivfk")
+volume_db = -25.347
+unit_size = 1.0
+
+[node name="open" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("5_y7sgd")
+unit_size = 1.0
+
+[node name="close" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("6_qlfs0")
+unit_size = 1.0
+
+[node name="damage_1" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("7_bhw7r")
+
+[node name="damage_2" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("8_brpbs")
+
+[node name="self_close_timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="PreventCloseArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PreventCloseArea"]
+shape = SubResource("BoxShape3D_api8q")
+
+[connection signal="input_event" from="clicker" to="clicker" method="_on_area_3d_input_event"]
+[connection signal="timeout" from="self_close_timer" to="." method="self_close"]

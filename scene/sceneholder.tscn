@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmi2n23sk3stx"]
+
+[ext_resource type="Script" path="res://scene/sceneholder.gd" id="1_imfk6"]
+
+[node name="sceneholder" type="Node3D"]
+script = ExtResource("1_imfk6")
+
+[node name="child_scene" type="Node3D" parent="."]

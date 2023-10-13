@@ -1,0 +1,4510 @@
+[gd_scene load_steps=99 format=3 uid="uid://b2nj3jwu0e3u4"]
+
+[ext_resource type="Script" path="res://scene/mainscene.gd" id="1_8006c"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_sf5f5"]
+[ext_resource type="Texture2D" uid="uid://bhq3uqf4nlaqb" path="res://textures/environment/ui/Move_Forwards.png" id="2_kjs1n"]
+[ext_resource type="Texture2D" uid="uid://x3vyb4t6ddgh" path="res://textures/dev/movement_node.png" id="3_i4k73"]
+[ext_resource type="Texture2D" uid="uid://e5glw5fo8j4h" path="res://textures/environment/ui/Move_Forward_Highlight.png" id="3_numgb"]
+[ext_resource type="Script" path="res://scripts/movement_node.gd" id="3_prlxo"]
+[ext_resource type="Script" path="res://scripts/nav_system.gd" id="3_yc8lr"]
+[ext_resource type="Texture2D" uid="uid://ycviipslabeu" path="res://textures/environment/ui/Move_Left.png" id="4_0fipx"]
+[ext_resource type="Texture2D" uid="uid://dj7m2q8b4qlpe" path="res://textures/environment/ui/Move_Left_Highlight.png" id="5_rp6b6"]
+[ext_resource type="Texture2D" uid="uid://6nu227o545rs" path="res://textures/environment/doors/standard/door_unlocked.png" id="6_1cmpt"]
+[ext_resource type="Texture2D" uid="uid://cmuwjxowcfse3" path="res://textures/environment/ui/Move_Right.png" id="6_3qavu"]
+[ext_resource type="Script" path="res://scripts/env/trigger_door.gd" id="6_14vim"]
+[ext_resource type="Texture2D" uid="uid://5b7cs76lxkmv" path="res://textures/environment/ui/Move_Right_Highlight.png" id="7_88511"]
+[ext_resource type="Script" path="res://scripts/env/door.gd" id="7_fvaei"]
+[ext_resource type="Texture2D" uid="uid://motvr36r48w0" path="res://textures/environment/ui/Turn_Left.png" id="8_3ik43"]
+[ext_resource type="Script" path="res://scripts/source_interactive.gd" id="8_f8ayq"]
+[ext_resource type="AudioStream" uid="uid://bbav8nrqfidlx" path="res://sounds/denied.wav" id="9_3tvy7"]
+[ext_resource type="MeshLibrary" uid="uid://cfk4v14igwwsx" path="res://meshes/walls.tres" id="9_gdsn6"]
+[ext_resource type="Texture2D" uid="uid://dusxencek2udd" path="res://textures/environment/ui/Turn_Left_Highlight.png" id="9_mbcek"]
+[ext_resource type="Texture2D" uid="uid://o6cu6tenahmr" path="res://textures/environment/ui/Turn_Right.png" id="10_8ne72"]
+[ext_resource type="AudioStream" uid="uid://ckcht712fkw31" path="res://sounds/dooropen.wav" id="10_fx1bt"]
+[ext_resource type="Texture2D" uid="uid://dauspv0mr0gou" path="res://textures/environment/ui/Turn_Right_Highlight.png" id="11_8emi2"]
+[ext_resource type="AudioStream" uid="uid://cdsxby4pnti61" path="res://sounds/doorclose.wav" id="11_cxdm2"]
+[ext_resource type="Texture2D" uid="uid://bjvf0qjev3laf" path="res://textures/environment/ui/Turn_Back.png" id="12_opr4t"]
+[ext_resource type="AudioStream" uid="uid://cmxfevlkqspl4" path="res://sounds/door/doorbroken2.wav" id="12_ry4ka"]
+[ext_resource type="AudioStream" uid="uid://d3tny42api8kw" path="res://sounds/door/doorbroken3.wav" id="13_1rujq"]
+[ext_resource type="Texture2D" uid="uid://b8a47wccir5ft" path="res://textures/environment/ui/Turn_Back_Highlight.png" id="13_bc5pg"]
+[ext_resource type="PackedScene" uid="uid://mp8804fot22l" path="res://scene/entities/keycard.tscn" id="13_wlfoi"]
+[ext_resource type="AudioStream" uid="uid://c0dssraikn2go" path="res://sounds/reactor/chargedexplosion.wav" id="14_d5m4l"]
+[ext_resource type="Texture2D" uid="uid://b75eqdog6c48q" path="res://textures/environment/ui/Compass Arrows/Compass_Up.png" id="14_k1bwy"]
+[ext_resource type="Texture2D" uid="uid://d35f7hlh45770" path="res://textures/environment/ui/Compass Arrows/Compass_Down.png" id="15_es6qo"]
+[ext_resource type="Texture2D" uid="uid://oc5fr0vxbhwg" path="res://textures/environment/rubble.png" id="15_fbdg0"]
+[ext_resource type="Texture2D" uid="uid://3px1euosf3jp" path="res://textures/environment/ui/UI_19by6.png" id="16_1iep4"]
+[ext_resource type="AudioStream" uid="uid://bmr6idive7up4" path="res://sounds/captain.ogg" id="16_53s38"]
+[ext_resource type="Texture2D" uid="uid://d03sjp43fdneu" path="res://textures/dev/monster_spawn.png" id="16_q71e7"]
+[ext_resource type="Texture2D" uid="uid://b85bb0idycuxd" path="res://textures/environment/ui/Compass Arrows/Compass_Right.png" id="16_ukjla"]
+[ext_resource type="Texture2D" uid="uid://ceivh7wr7bjot" path="res://textures/environment/ui/Compass Arrows/Compass_Left.png" id="17_4bkq6"]
+[ext_resource type="Texture2D" uid="uid://cm5bcnvj68atd" path="res://textures/dev/waypoint.png" id="17_4jgbj"]
+[ext_resource type="Script" path="res://scripts/monster_spawner.gd" id="17_uxarp"]
+[ext_resource type="Texture2D" uid="uid://bf4t8y3e4fon1" path="res://textures/environment/Dead_Captain.png" id="18_8xwa3"]
+[ext_resource type="Script" path="res://scripts/env/waypoint.gd" id="18_aewtu"]
+[ext_resource type="PackedScene" uid="uid://cxh0r6eifvvq6" path="res://scene/entities/crab.tscn" id="18_vq3nm"]
+[ext_resource type="AudioStream" uid="uid://4g0tattv35xs" path="res://sounds/msg.wav" id="19_7y546"]
+[ext_resource type="PackedScene" uid="uid://dxo23sefwo1gv" path="res://scene/entities/player.tscn" id="21_6uejs"]
+[ext_resource type="PackedScene" uid="uid://8pwvlesly0f6" path="res://scene/entities/crystal_spider.tscn" id="30_qmdge"]
+[ext_resource type="FontFile" uid="uid://bohj6l4namqhr" path="res://fonts/Ac437_PhoenixEGA_8x8.ttf" id="34_b1idt"]
+[ext_resource type="PackedScene" uid="uid://dn8ud10ob286u" path="res://scene/entities/door.tscn" id="36_idomb"]
+[ext_resource type="AudioStream" uid="uid://ckw5ywbur3won" path="res://sounds/music/ambient.ogg" id="41_es0bx"]
+[ext_resource type="AudioStream" uid="uid://b61ypl507xb52" path="res://sounds/music/monster_near.ogg" id="43_8o5m3"]
+[ext_resource type="AudioStream" uid="uid://o67q0dkrj01r" path="res://sounds/music/chase.ogg" id="44_1qbej"]
+[ext_resource type="AudioStream" uid="uid://5gcwoxigtktd" path="res://sounds/music/escape.ogg" id="45_hqmbe"]
+[ext_resource type="Shader" path="res://scene/screen_colorize.gdshader" id="46_1kdw8"]
+[ext_resource type="Texture2D" uid="uid://bkgcrmrembky1" path="res://textures/environment/walls/reactor/NuclearReactorSwitch_.png" id="48_qlm6o"]
+[ext_resource type="AudioStream" uid="uid://i48lb6uvwrd0" path="res://sounds/reactor/shutdown.wav" id="49_7fokn"]
+[ext_resource type="AudioStream" uid="uid://duie1mrl3k4nw" path="res://sounds/reactor/alarm_loop.wav" id="50_dddj0"]
+[ext_resource type="AudioStream" uid="uid://dhsuays6ghgyu" path="res://sounds/reactor/reactor_alarm_first.wav" id="51_l21cs"]
+[ext_resource type="AudioStream" uid="uid://bk7fmxt1rwpk5" path="res://sounds/evacuate.wav" id="55_3juro"]
+
+[sub_resource type="Environment" id="Environment_87rn2"]
+background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+adjustment_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cw786"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("6_1cmpt")
+texture_filter = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_5k3qc"]
+material = SubResource("StandardMaterial3D_cw786")
+
+[sub_resource type="GDScript" id="GDScript_s5l6s"]
+script/source = "class_name FinalDoor
+extends MeshInstance3D
+
+enum DoorType{standard, residential, reactor, medical, engineering, bridge, escape}
+
+var key_type = {
+	DoorType.medical: GlobalVars.Keys.Medical,
+	DoorType.engineering: GlobalVars.Keys.Engineering,
+	DoorType.bridge: GlobalVars.Keys.Bridge,
+	DoorType.reactor: GlobalVars.Keys.Reactor,
+}
+
+var texture_closed_locked = {
+	DoorType.standard : preload(\"res://textures/environment/doors/standard/door_locked.png\"),
+	DoorType.residential : preload(\"res://textures/environment/doors/residential/door_locked.png\"),
+	DoorType.reactor : preload(\"res://textures/environment/doors/reactor/door_locked.png\"),
+	DoorType.medical : preload(\"res://textures/environment/doors/medical/door_locked.png\"),
+	DoorType.engineering : preload(\"res://textures/environment/doors/engineering/door_locked.png\"),
+	DoorType.bridge : preload(\"res://textures/environment/doors/bridge/door_locked.png\"),
+	DoorType.escape : preload(\"res://textures/environment/doors/escape/door_locked.png\"),
+}
+
+var texture_closed_unlocked = {
+	DoorType.standard : preload(\"res://textures/environment/doors/standard/door_unlocked.png\"),
+	DoorType.residential : preload(\"res://textures/environment/doors/residential/door_unlocked.png\"),
+	DoorType.reactor : preload(\"res://textures/environment/doors/reactor/door_unlocked.png\"),
+	DoorType.medical : preload(\"res://textures/environment/doors/medical/door_unlocked.png\"),
+	DoorType.engineering : preload(\"res://textures/environment/doors/engineering/door_unlocked.png\"),
+	DoorType.bridge : preload(\"res://textures/environment/doors/bridge/door_unlocked.png\"),
+	DoorType.escape : preload(\"res://textures/environment/doors/escape/door_unlocked.png\"),
+}
+
+var texture_open_unlocked = preload(\"res://textures/environment/doors/standard/door_open_unlocked.png\")
+var texture_open_locked = preload(\"res://textures/environment/doors/standard/door_open_locked.png\")
+var texture_closed_broken = preload(\"res://textures/environment/doors/standard/broken.png\")
+var texture_open_broken = preload(\"res://textures/environment/doors/standard/broken_open.png\")
+
+@export var type = DoorType.standard
+@export var is_open = false
+@export var locked = false
+@export var self_closing = true
+@export var is_broken = false
+@export var breakable = false
+@export var alarmsfx: AudioStreamPlayer2D
+
+var damage_taken = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	set_open_state(is_open, true, true, true)
+	material_override = get_active_material(0).duplicate()
+	if is_broken:
+		break_door(is_open)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func damage():
+	if damage_taken > 2:
+		return  # why is this happening?
+	damage_taken += 1
+	if damage_taken == 1:
+		$SFX/damage_1.play()
+		break_door(false)
+		return
+	$SFX/damage_2.play()
+	break_door(true)
+
+func break_door(open=false):
+	is_broken = true
+	set_open_state(open, true, true, true)
+	if !open:
+		get_active_material(0).set_texture(0, texture_closed_broken)
+	else:
+		get_active_material(0).set_texture(0, texture_open_broken)
+	
+
+func trigger():
+	set_open_state(!is_open)
+
+func set_locked(lock):
+	locked = lock
+
+func self_close():
+	if is_broken:
+		return
+	if $PreventCloseArea.has_overlapping_areas():
+		$self_close_timer.start()
+		return
+	set_open_state(false, true, true)
+
+func set_open_state(state, silence_prompt=false, force=false, silence=false):
+	if is_broken && !force:
+		if !silence:
+			$SFX/denied.play()
+		if !silence_prompt:
+			GlobalVars.hud.display_message(\"THE DOOR IS BROKEN\", 1, 5, false)
+		return
+	
+	if locked && !force:
+		if !silence:
+			$SFX/denied.play()
+		if !silence_prompt:
+			GlobalVars.hud.display_message(\"THE DOOR IS LOCKED\", 1, 5, false)
+		return
+	
+	if key_type.has(type) && !force:
+		if !GlobalVars.held_keys.has(key_type[type]):
+			if !silence:
+				$SFX/denied.play()
+			if !silence_prompt:
+				GlobalVars.hud.display_message(\"DOOR REQUIRES \" + GlobalVars.key_desc[key_type[type]] + \" ACCESS\", 1, 5, false)
+			return
+			
+	if state:
+		$blocker.collision_layer = 0
+		if !locked:
+			get_active_material(0).set_texture(0, texture_open_unlocked)
+		else:
+			get_active_material(0).set_texture(0, texture_open_locked)
+		
+		if !silence:
+			$SFX/close.stop()
+			$SFX/open.play()
+		if !silence_prompt:
+			GlobalVars.hud.display_message(\"THE DOOR OPENS\")
+		if self_closing:
+			$self_close_timer.start()
+	else:
+		$blocker.collision_layer = 1
+		if !locked:
+			get_active_material(0).set_texture(0, texture_closed_unlocked[type])
+		else:
+			get_active_material(0).set_texture(0, texture_closed_locked[type])
+			
+		if !silence:
+			$SFX/open.stop()
+			$SFX/close.play()
+		GlobalVars.hud.set_hud_color(Vector3(0,0,0))
+		GlobalVars.hud.freeze_controls(true)
+		GlobalVars.ai_pause = true
+		GlobalVars.hud.set_music(GlobalVars.Music.None)
+		alarmsfx.stop()
+		await get_tree().create_timer(2).timeout
+		$SFX/crazyexplosion.play()
+		await get_tree().create_timer(4).timeout
+		LevelSwitch.switch_to_credits()
+		$self_close_timer.stop()
+	
+	if !breakable:
+		GlobalNav.nav_root.set_point_disabled(
+			GlobalNav.nav_root.get_closest_point(global_position, true), !state)
+	
+	is_open = state
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yxko"]
+size = Vector3(1, 1, 0.0348887)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cmee"]
+size = Vector3(0.0813101, 0.137135, 0.0999311)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_api8q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8511n"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("6_1cmpt")
+texture_filter = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_05hax"]
+material = SubResource("StandardMaterial3D_8511n")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sjjem"]
+size = Vector3(1, 1, 0.0348887)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcgdj"]
+size = Vector3(0.0813101, 0.137135, 0.0999311)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nhb2"]
+
+[sub_resource type="GDScript" id="GDScript_wmkqs"]
+script/source = "extends Area3D
+
+@export var target: Door
+@export var spawner: MonsterSpawner
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func clicked():
+	target.damage()
+	$CollisionShape3D.disabled = true
+	spawner.spawn()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3lfmr"]
+size = Vector3(0.138472, 0.138722, 0.0930769)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_un434"]
+
+[sub_resource type="GDScript" id="GDScript_hyjde"]
+script/source = "extends Node
+
+
+@export var target: MonsterSpawner
+
+var triggered = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_area_entered(area):
+	if triggered:
+		return
+	target.spawn()
+	triggered = true
+"
+
+[sub_resource type="GDScript" id="GDScript_w5iy7"]
+script/source = "extends Area3D
+
+var trigger = false
+
+func triggered():
+	if trigger:
+		return
+	trigger = true
+	GlobalVars.hud.freeze_controls()
+	GlobalVars.ai_pause = true
+	$speech.play()
+	GlobalVars.hud.display_message(\"YOU CANT LET IT GET OFF THE SHIP\", 1, 4, false)
+	await get_tree().create_timer(7).timeout
+	GlobalVars.hud.display_message(\"TAKE THIS KEYCARD\", 1, 3, false)
+	await get_tree().create_timer(2).timeout
+	GlobalVars.hud.display_message(\"SCUTTLE THE SHIP\", 1, 3, false)
+	await get_tree().create_timer(2.5).timeout
+	GlobalVars.hud.display_message(\"IT'S TOO LATE FOR ME...\", 1, 3, false)
+	await get_tree().create_timer(6).timeout
+	GlobalVars.hud.freeze_controls(false)
+	GlobalVars.ai_pause = false
+	GlobalVars.held_keys.append(GlobalVars.Keys.Reactor)
+	GlobalVars.hud.display_message(\"OBTAINED REACTOR ACCESS\")
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_drtut"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dgde"]
+
+[sub_resource type="GDScript" id="GDScript_fpg30"]
+script/source = "extends RichTextLabel
+
+var time_left = 120
+var running = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if running:
+		time_left -= delta
+		if time_left < 0:
+			time_left = 0
+		text = \"[center]\" + str(time_left).pad_decimals(3)
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5a78e"]
+shader = ExtResource("46_1kdw8")
+shader_parameter/color = Vector3(1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_vd2hq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ambient:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ambient:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_omlue"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ambient:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ambient:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ui67m"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ambient:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ambient:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.148651),
+"update": 0,
+"values": [0.0, -40.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdbsf"]
+_data = {
+"RESET": SubResource("Animation_vd2hq"),
+"fade_in": SubResource("Animation_omlue"),
+"fade_out": SubResource("Animation_ui67m")
+}
+
+[sub_resource type="Animation" id="Animation_ccuqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("danger_close:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("danger_close:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_t0374"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("danger_close:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("danger_close:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bsgb7"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("danger_close:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.148),
+"update": 0,
+"values": [0.0, -40.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("danger_close:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3e71o"]
+_data = {
+"RESET": SubResource("Animation_ccuqv"),
+"fade_in": SubResource("Animation_t0374"),
+"fade_out": SubResource("Animation_bsgb7")
+}
+
+[sub_resource type="Animation" id="Animation_ahvuu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chase:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("chase:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ba1l4"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chase:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("chase:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_av714"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("chase:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.148),
+"update": 0,
+"values": [0.0, -40.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("chase:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_22qbx"]
+_data = {
+"RESET": SubResource("Animation_ahvuu"),
+"fade_in": SubResource("Animation_ba1l4"),
+"fade_out": SubResource("Animation_av714")
+}
+
+[sub_resource type="Animation" id="Animation_lktek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("escape:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("escape:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_twfag"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("escape:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("escape:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bq2d8"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("escape:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("escape:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.148),
+"update": 0,
+"values": [0.0, -40.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uu3ij"]
+_data = {
+"RESET": SubResource("Animation_lktek"),
+"fade_in": SubResource("Animation_twfag"),
+"fade_out": SubResource("Animation_bq2d8")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eda4l"]
+shading_mode = 0
+albedo_texture = ExtResource("48_qlm6o")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_37xri"]
+material = SubResource("StandardMaterial3D_eda4l")
+size = Vector2(1, 1)
+
+[sub_resource type="GDScript" id="GDScript_q6jlo"]
+script/source = "extends MeshInstance3D
+
+@export var target_door: Door
+@export var break_door: Door
+@export var door_buster: Area3D
+@export var monsta_reveal: Area3D
+@export var monsta_5: Area3D
+@export var door_19: Door
+
+var texture_activated = preload(\"res://textures/environment/walls/reactor/NuclearReactorSwitch_Activated_.png\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func trigger():
+	$shutdown.play()
+	get_active_material(0).set_texture(0, texture_activated)
+	GlobalVars.hud.set_music(GlobalVars.Music.None)
+	GlobalVars.hud.set_hud_color(Vector3(0,0,0))
+	GlobalVars.hud.freeze_controls(true)
+	GlobalVars.ai_pause = true
+	await get_tree().create_timer(3).timeout
+	GlobalVars.hud.set_hud_color(Vector3(1,0,0))
+	target_door.locked = false
+	target_door.set_open_state(false, true, true, true)
+	break_door.break_door()
+	door_buster.visible = true
+	monsta_reveal.monitoring = true
+	monsta_5.monitoring = true
+	door_19.breakable = true
+	$backatit.play()
+	await get_tree().create_timer(2).timeout
+	$overload.play()
+	GlobalVars.hud.freeze_controls(false)
+	GlobalVars.ai_pause = false
+	GlobalVars.hud.display_message(\"EVACUATE TO LIFEBOATS\", 999)
+	await get_tree().create_timer(2).timeout
+	GlobalVars.begin_finale()
+	$Deathtimer.start()
+
+func kill_player():
+	GlobalVars.player.die()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jp7fc"]
+size = Vector3(0.248069, 0.0636887, 0.271263)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+script = ExtResource("1_8006c")
+
+[node name="All" type="Node3D" parent="."]
+
+[node name="World" type="Node3D" parent="All"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="nav_map" type="Node3D" parent="All/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+script = ExtResource("3_yc8lr")
+
+[node name="movement_node19" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node375" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node376" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node377" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node386" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node378" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node379" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node380" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node381" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node382" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node383" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node384" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node385" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node391" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node83" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node84" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node85" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node388" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node86" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node87" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node88" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node89" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node91" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node92" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node93" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node98" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node99" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node100" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node101" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node94" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node102" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node103" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node104" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node105" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node106" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node107" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node108" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node109" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node110" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node111" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node112" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node113" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node119" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node120" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node121" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node122" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node390" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node114" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node116" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node117" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node123" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node124" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node125" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node133" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node134" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node135" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node136" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node159" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node160" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node137" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node138" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node139" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node140" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node126" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node127" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node128" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node129" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node130" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node131" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node132" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node141" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node142" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node143" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node144" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node145" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node146" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node147" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node148" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node149" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node150" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -5.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node154" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node155" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node157" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node158" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node156" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node151" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node152" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node153" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node118" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node115" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node95" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node96" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node97" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node161" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node162" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node163" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node240" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node241" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node276" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node279" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node280" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node281" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node282" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node283" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node284" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node291" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node285" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node286" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node292" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node287" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node288" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node289" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node319" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node320" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node321" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node322" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node323" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node324" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node325" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node326" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node327" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node328" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node329" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node336" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node337" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node338" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -18.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node339" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -18.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node340" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -19.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node341" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -19.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node345" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -20.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node346" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -21.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node347" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node348" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -23.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node349" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -21.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node350" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node355" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node356" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node357" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node358" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node359" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node360" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node351" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -23.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node352" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -21.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node353" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node354" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -23.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node342" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -19.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node343" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -18.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node344" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -18.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node330" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node331" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node332" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node333" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node334" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node293" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node294" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node295" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node335" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node296" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node297" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node298" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node299" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node300" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node301" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node318" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node302" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node303" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node317" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node304" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node305" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node306" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node307" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node308" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node309" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node310" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node311" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node312" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node313" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node314" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node315" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node316" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -6.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node290" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node277" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node278" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node389" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node242" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node243" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node244" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node245" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node246" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node247" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node248" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -18.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node249" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -19.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node250" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -20.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node251" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -21.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node252" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node253" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node254" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node255" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -21.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node256" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -20.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node257" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -19.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node258" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -18.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node259" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node260" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node261" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node262" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node263" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node396" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node397" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node398" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node264" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -18.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node265" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -19.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node266" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -20.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node267" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -21.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node268" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node269" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node392" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -23.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node393" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -24.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node394" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -25.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node395" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -25.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node270" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node271" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node272" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node273" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node274" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -23.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node275" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -24.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node164" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node165" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node166" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node167" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node168" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node169" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node170" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node171" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node172" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node173" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node174" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node177" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node178" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node179" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node180" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node181" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node182" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node183" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node184" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node185" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node201" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node202" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node203" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node204" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node205" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node206" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node207" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node209" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node210" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node212" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node213" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node215" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node216" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node218" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node219" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node186" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node187" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node188" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node189" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node221" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -16.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node222" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -17.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node223" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -18.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node224" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -19.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node225" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -20.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node226" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -21.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node227" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node228" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node229" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -22.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node230" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -23.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node231" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -24.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node232" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -25.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node233" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -26.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node234" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -26.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node235" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -26.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node236" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -27.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node239" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 1, -28.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node237" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -27.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node238" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -27.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node190" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node191" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node192" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node193" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node194" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node195" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node196" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node197" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -15.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node198" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -14.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node199" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -13.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node200" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -12.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node175" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -11.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node176" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1, -10.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node90" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node20" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node21" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node22" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node23" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node24" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node26" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node27" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node28" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node29" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node30" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node32" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node33" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node34" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node35" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node36" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node37" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node38" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node39" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node40" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node41" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 1, -4.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node42" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node43" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node44" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1, -4.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node45" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node46" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node47" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1, -4.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node48" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node49" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node50" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 1, -4.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node51" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 1, -3.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node52" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 1, -2.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node54" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node55" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 1, -1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node56" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node57" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node53" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 1, -4.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node58" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1, -5.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node59" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 1, -5.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node60" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1, -6.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node61" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 1, -6.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node62" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 1, -5.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node63" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 1, -6.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node64" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 1, -5.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node65" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 1, -6.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node66" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, 1, -5.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node67" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, 1, -6.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node68" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, -5.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node69" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, -6.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node70" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, -0.496815)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node71" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, -1.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node72" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, 1, -0.496815)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node73" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, 1, -1.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node74" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 1, -0.496815)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node75" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 1, -1.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node76" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 1, -0.496815)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node77" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 1, -1.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node78" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, -3.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node81" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, 1, -3.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node82" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 1, -3.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node80" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, -2.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node79" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1, -4.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node368" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 1, -5.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node369" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 1, -6.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node370" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 1, -0.496815)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node371" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 1, -1.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node372" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 1, -3.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node373" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 1, -2.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node374" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 1, -4.49681)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node31" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node25" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node4" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node387" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node11" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 4.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node5" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node6" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node7" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node8" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node9" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node10" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 1.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node361" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node362" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node363" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 8.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node364" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node365" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 7.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node366" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="movement_node367" type="Sprite3D" parent="All/World/nav_map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1, 9.5)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("3_i4k73")
+script = ExtResource("3_prlxo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="All/World"]
+environment = SubResource("Environment_87rn2")
+
+[node name="Walls" type="GridMap" parent="All/World"]
+mesh_library = ExtResource("9_gdsn6")
+cell_size = Vector3(0.5, 1, 0.5)
+cell_center_x = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(4, 65534, 1507331, 0, 2, 1507331, 65535, 3, 262147, 65532, 2, 1507331, 1, 65535, 917511, 65532, 65534, 1245187, 65533, 65533, 917507, 0, 65534, 1245187, 65535, 65533, 262147, 3, 65529, 262144, 5, 65529, 262144, 1, 65529, 262144, 1, 65531, 917508, 7, 65529, 262147, 65535, 65529, 262148, 65535, 65531, 917504, 65534, 65528, 1507335, 65535, 65527, 262148, 3, 65527, 917504, 3, 65525, 262151, 65535, 65525, 262147, 65533, 65525, 917504, 65531, 65525, 917504, 65533, 65531, 917504, 65531, 65531, 917504, 65529, 65531, 917504, 65529, 65525, 917504, 65532, 65528, 1245185, 65531, 65527, 917505, 65531, 65529, 917505, 5, 65527, 917504, 8, 65528, 1507335, 65527, 65531, 917504, 65527, 65525, 917504, 65522, 65526, 1245191, 65522, 65530, 1245191, 65521, 65525, 917505, 65520, 65530, 1245187, 65519, 65529, 262151, 65518, 65530, 1507329, 65518, 65526, 1507329, 65517, 65531, 917505, 65517, 65525, 917505, 65515, 65525, 917505, 65515, 65531, 917505, 65526, 65526, 1245189, 65526, 65530, 1245189, 65525, 65527, 262147, 65523, 65527, 917507, 65525, 65529, 262147, 65523, 65529, 917507, 65520, 65526, 1507331, 65521, 65531, 917505, 65528, 65528, 1245185, 65529, 65527, 262145, 65529, 65529, 262145, 5, 65531, 262148, 7, 65531, 262147, 8, 65532, 1507335, 10, 65532, 1507328, 10, 65530, 1507328, 10, 65528, 1507328, 10, 65526, 1507332, 7, 65525, 917504, 2, 65532, 1507335, 2, 65534, 1507331, 2, 2, 1245187, 4, 2, 1245187, 1, 1, 917511, 65533, 3, 917507, 65532, 0, 1245186, 4, 65532, 1507335, 9, 65525, 262147, 6, 65524, 1245191, 2, 4, 1245184, 4, 4, 1245184, 4, 6, 1507331, 2, 6, 1507331, 2, 10, 1245187, 5, 1, 917511, 5, 65535, 917511, 5, 7, 262151, 5, 9, 262151, 1, 7, 262151, 1, 9, 262151, 2, 12, 1507329, 4, 12, 1507329, 4, 10, 1245187, 4, 14, 1507331, 2, 14, 1507331, 1, 15, 262151, 1, 17, 262151, 5, 17, 262151, 5, 15, 262151, 3, 17, 917506, 7, 65523, 262151, 8, 65522, 1507335, 7, 65517, 917511, 8, 65518, 1245191, 4, 65524, 1245191, 4, 65522, 1245184, 4, 65518, 1245184, 9, 65521, 262151, 9, 65519, 262151, 6, 65516, 1507335, 4, 65516, 1507335, 7, 65527, 262147, 3, 65519, 917511, 3, 65521, 917511, 1, 65519, 917507, 0, 65522, 1245184, 2, 65524, 1507331, 0, 65524, 1507331, 0, 65520, 1245187, 2, 65522, 1245187, 6, 65514, 1507328, 3, 65513, 917504, 4, 65514, 1245184, 3, 65511, 262144, 11, 65521, 262144, 12, 65522, 1507328, 12, 65524, 1507328, 12, 65526, 1507328, 12, 65528, 1507328, 11, 65519, 917504, 13, 65519, 917504, 15, 65519, 917504, 16, 65522, 1245184, 15, 65523, 262144, 14, 65524, 1507328, 14, 65526, 1507328, 15, 65527, 917504, 15, 65529, 917504, 13, 65529, 917504, 17, 65521, 917504, 17, 65519, 917504, 18, 65522, 1245184, 20, 65520, 1245184, 20, 65522, 1245184, 20, 65526, 1245184, 18, 65524, 1245184, 18, 65526, 1245184, 17, 65527, 262144, 21, 65525, 262144, 21, 65523, 262144, 23, 65523, 262144, 23, 65525, 262144, 16, 65530, 1507328, 18, 65530, 1507328, 16, 65532, 1507328, 20, 65528, 1507328, 19, 65529, 917504, 24, 65526, 1507328, 26, 65526, 1507328, 24, 65528, 1507328, 26, 65528, 1507328, 26, 65530, 1507328, 24, 65530, 1507328, 24, 65532, 1507328, 24, 65522, 1507328, 26, 65522, 1507328, 26, 65518, 1507328, 24, 65518, 1507328, 25, 65515, 917504, 23, 65515, 917504, 23, 65517, 917504, 20, 65518, 1245184, 18, 65518, 1245184, 21, 65517, 262144, 19, 65515, 262144, 18, 65516, 1507328, 19, 65531, 262144, 20, 65532, 1507328, 21, 65533, 917504, 23, 65533, 917504, 17, 65533, 917504, 18, 65534, 1245184, 19, 65535, 262144, 21, 65535, 262144, 27, 65533, 917504, 27, 65531, 917504, 23, 65521, 917504, 23, 65519, 917504, 22, 65514, 1245184, 20, 65514, 1245184, 22, 65512, 1245184, 20, 65512, 1245184, 20, 65510, 1245184, 19, 65509, 262144, 21, 65507, 262144, 22, 65508, 1507328, 19, 65507, 917504, 17, 65507, 917504, 17, 65509, 917504, 15, 65507, 917504, 15, 65509, 917504, 13, 65507, 917504, 13, 65509, 917504, 11, 65507, 917504, 7, 65513, 917511, 7, 65511, 917511, 9, 65513, 917504, 9, 65511, 917504, 12, 65512, 1245184, 11, 65513, 262144, 10, 65510, 1507328, 12, 65510, 1507328, 10, 65508, 1507328, 30, 65526, 1245184, 30, 65528, 1245184, 30, 65530, 1245184, 29, 65531, 262144, 29, 65533, 262144, 32, 65530, 1245184, 32, 65528, 1245184, 32, 65526, 1245184, 33, 65525, 262144, 33, 65523, 262144, 34, 65526, 1507328, 34, 65528, 1507328, 34, 65530, 1507328, 37, 65533, 917504, 38, 65532, 1245184, 38, 65530, 1245184, 38, 65528, 1245184, 37, 65527, 262144, 36, 65526, 1507328, 36, 65524, 1507328, 35, 65523, 917504, 32, 65522, 1245184, 30, 65522, 1245184, 32, 65520, 1245184, 30, 65518, 1245184, 31, 65517, 262144, 33, 65517, 262144, 33, 65519, 262144, 30, 65534, 1507328, 31, 65535, 917504, 33, 65535, 917504, 35, 65535, 917504, 36, 65534, 1245184, 34, 65532, 1245184, 32, 65532, 1245184, 33, 65533, 262144, 1, 65513, 917504, 4, 65510, 1245191, 6, 65510, 1245191, 4, 65508, 1507328, 6, 65508, 1507328, 4, 65506, 1507328, 6, 65506, 1507328, 4, 65504, 1507328, 5, 65503, 917504, 7, 65503, 917504, 7, 65505, 917504, 9, 65505, 917504, 9, 65503, 917504, 11, 65505, 917504, 11, 65503, 917504, 13, 65505, 917504, 13, 65503, 917504, 15, 65505, 917504, 15, 65503, 917504, 17, 65505, 917504, 17, 65503, 917504, 19, 65505, 917504, 19, 65503, 917504, 21, 65505, 917504, 23, 65505, 917504, 23, 65503, 917504, 25, 65503, 917504, 25, 65505, 917504, 27, 65505, 917504, 27, 65503, 917504, 27, 65517, 917504, 29, 65517, 917504, 30, 65516, 1245184, 27, 65515, 262144, 28, 65514, 1507328, 30, 65514, 1507328, 28, 65512, 1507328, 28, 65508, 1507328, 28, 65506, 1507328, 30, 65512, 1507328, 30, 65510, 1507328, 30, 65508, 1507328, 30, 65506, 1507328, 29, 65503, 917504, 31, 65503, 262144, 31, 65505, 262144, 39, 65503, 917511, 39, 65505, 917511, 40, 65502, 1507328, 40, 65506, 1507328, 40, 65508, 1507328, 40, 65500, 1507328, 30, 65524, 1507328, 26, 65524, 1507328, 25, 65533, 917504, 27, 65521, 262144, 27, 65519, 262144, 29, 65519, 262144, 29, 65521, 262144, 23, 65509, 262144, 27, 65509, 262144, 25, 65509, 262144, 23, 65511, 262144, 25, 65511, 262144, 27, 65511, 262144, 0, 18, 1507328, 0, 14, 1507328, 65532, 16, 1507328, 65532, 18, 1507328, 65535, 19, 917504, 65533, 19, 917504, 65535, 13, 917504, 65533, 13, 917504, 65532, 14, 1245184, 0, 65514, 1507328, 65534, 65514, 1507328, 65534, 65516, 1507328, 0, 65516, 1507328, 65535, 65511, 917504, 65533, 65511, 917504, 65533, 65513, 917504, 65531, 65511, 917504, 65531, 65513, 917504, 65529, 65511, 262151, 65529, 65513, 262151, 65528, 65510, 1245184, 65528, 65514, 1245184, 65527, 65515, 262144, 65527, 65509, 262144, 65523, 65509, 262144, 65523, 65515, 262144, 65525, 65513, 262144, 65525, 65511, 262144, 65526, 65512, 1507328, 65524, 65512, 1507328, 65522, 65510, 1507328, 65522, 65514, 1507328, 65520, 65514, 1507328, 65520, 65510, 1507328, 65518, 65512, 1507328, 65516, 65512, 1507328, 65514, 65514, 1507328, 65514, 65510, 1507328, 65519, 65509, 917504, 65515, 65509, 917504, 65517, 65511, 917504, 65517, 65513, 917504, 65519, 65515, 917504, 65515, 65515, 917504, 65521, 65513, 917504, 65521, 65511, 917504, 65514, 65512, 1245184, 65518, 65516, 1245184, 65516, 65516, 1245184, 65518, 65508, 1245184, 65516, 65508, 1245184, 65524, 65508, 1245184, 65526, 65508, 1245184, 65524, 65516, 1245184, 65526, 65516, 1245184, 65519, 65517, 262144, 65520, 65518, 1507328, 65523, 65517, 917504, 65522, 65518, 1245184, 65520, 65506, 1245184, 65522, 65506, 1245184, 65521, 65505, 262144, 65523, 65507, 262144, 65515, 65517, 262144, 65517, 65519, 262144, 65517, 65521, 262144, 65519, 65523, 262144, 65515, 65523, 262144, 65517, 65523, 262144, 65523, 65523, 262144, 65525, 65523, 262144, 65527, 65523, 262144, 65528, 65518, 1507328, 65528, 65520, 1507328, 65528, 65522, 1507328, 65526, 65520, 1507328, 65524, 65520, 1507328, 65518, 65520, 1507328, 65516, 65520, 1507328, 65525, 65519, 917504, 65525, 65521, 917504, 65521, 65521, 917504, 65514, 65518, 1245184, 65514, 65520, 1245184, 65514, 65522, 1245184, 65522, 65522, 1245184, 65520, 65522, 1245184, 65521, 65519, 262144, 65519, 65507, 262144, 65521, 65503, 262144, 65519, 65501, 262144, 65523, 65501, 262144, 65523, 65499, 262144, 65519, 65499, 262144, 65521, 65497, 262144, 65524, 65500, 1507328, 65522, 65502, 1507328, 65520, 65502, 1507328, 65518, 65500, 1507328, 65520, 65498, 1507328, 65522, 65498, 1507328, 65528, 65506, 1507328, 65514, 65504, 1507328, 65514, 65506, 1507328, 65518, 65504, 1507328, 65516, 65504, 1507328, 65516, 65500, 1507328, 65527, 65507, 917504, 65525, 65505, 917504, 65525, 65503, 917504, 65515, 65507, 917504, 65517, 65505, 917504, 65517, 65503, 917504, 65515, 65501, 917504, 65514, 65502, 1245184, 65524, 65504, 1245184, 65526, 65504, 1245184, 65528, 65504, 1245184, 65528, 65502, 1245184, 65526, 65500, 1245184, 65527, 65501, 262144, 65526, 65498, 1507328, 65525, 65497, 917504, 65524, 65496, 1245184, 65523, 65495, 262144, 65519, 65495, 262144, 65518, 65496, 1507328, 65517, 65497, 917504, 65516, 65498, 1245184, 65520, 65494, 1245184, 65522, 65494, 1245184, 65519, 65493, 262144, 65523, 65493, 262144, 65518, 65490, 1507328, 65518, 65492, 1507328, 65524, 65492, 1507328, 65527, 65517, 917504, 65513, 65525, 917505, 65513, 65531, 917505, 65512, 65532, 1245185, 65512, 65534, 1245185, 65512, 65524, 1245185, 65512, 65522, 1245185, 65511, 65535, 262145, 65511, 65521, 262145, 65509, 65521, 262145, 65507, 65521, 262145, 65505, 65521, 262145, 65503, 65521, 262145, 65501, 65521, 262145, 65499, 65521, 262145, 65502, 65526, 1507333, 65502, 65530, 1507333, 65503, 65529, 917504, 65503, 65527, 917504, 65503, 65531, 917504, 65503, 65525, 917504, 65505, 65525, 917504, 65507, 65525, 917504, 65508, 65526, 1245184, 65508, 65528, 1245184, 65508, 65530, 1245184, 65507, 65531, 262144, 65505, 65531, 262144, 65498, 65522, 1507329, 65498, 65524, 1507329, 65498, 65526, 1507329, 65498, 65528, 1507329, 65498, 65530, 1507329, 65498, 65532, 1507329, 65498, 65534, 1507329, 65499, 65535, 917505, 65501, 65535, 917505, 65503, 65535, 917505, 65505, 65535, 917505, 65507, 65535, 917505, 65509, 65535, 917505, 65518, 65488, 1245184, 65524, 65488, 1245184, 65523, 65487, 262144, 65521, 65487, 262144, 65519, 65487, 262144, 65525, 65491, 917504, 65525, 65489, 917504, 65527, 65489, 917504, 65527, 65491, 917504, 65529, 65491, 917504, 65529, 65489, 917504, 65531, 65489, 917504, 65533, 65489, 917504, 65535, 65489, 917504, 2, 65510, 1245191, 0, 65510, 1245191, 0, 65508, 1245184, 2, 65508, 1245184, 0, 65506, 1245184, 2, 65506, 1245184, 2, 65504, 1245184, 0, 65504, 1245184, 2, 65502, 1245184, 0, 65502, 1245184, 2, 65500, 1245184, 0, 65500, 1245184, 0, 65498, 1245184, 2, 65498, 1245184, 0, 65496, 1245184, 2, 65496, 1245184, 0, 65494, 1245184, 2, 65494, 1245184, 0, 65492, 1245184, 2, 65492, 1245184, 65535, 65491, 262144, 65533, 65491, 262144, 65531, 65491, 262144, 1, 65489, 262144, 3, 65489, 262144, 3, 65491, 262144, 22, 65502, 1507328, 20, 65502, 1507328, 20, 65500, 1245184, 22, 65500, 1245184, 20, 65498, 1245184, 22, 65498, 1245184, 20, 65496, 1245184, 20, 65494, 1245184, 20, 65492, 1245184, 22, 65496, 1245184, 22, 65494, 1245184, 22, 65492, 1245184, 6, 65490, 1245184, 4, 65492, 1245184, 5, 65489, 262144, 6, 65492, 1507328, 4, 65494, 1507328, 4, 65496, 1507328, 4, 65498, 1507328, 4, 65500, 1507328, 5, 65501, 917504, 7, 65499, 917504, 7, 65501, 917504, 9, 65499, 917504, 9, 65501, 917504, 11, 65499, 917504, 11, 65501, 917504, 13, 65501, 917504, 6, 65494, 1245184, 6, 65496, 1245184, 6, 65498, 1245184, 12, 65498, 1245184, 14, 65498, 1245184, 12, 65496, 1245184, 14, 65496, 1245184, 12, 65494, 1245184, 14, 65494, 1245184, 12, 65492, 1245184, 14, 65492, 1245184, 15, 65491, 262144, 17, 65491, 262144, 19, 65491, 262144, 11, 65491, 262144, 9, 65491, 917504, 8, 65490, 1245184, 9, 65489, 917506, 13, 65489, 917506, 15, 65489, 917506, 19, 65489, 917506, 21, 65489, 917506, 23, 65491, 917504, 25, 65491, 917504, 26, 65490, 1245184, 25, 65489, 262146, 16, 65488, 1507330, 18, 65488, 1507330, 16, 65486, 1507330, 18, 65486, 1507330, 12, 65488, 1245186, 10, 65488, 1245186, 22, 65484, 1245191, 24, 65484, 1245191, 22, 65486, 1245186, 22, 65488, 1245186, 24, 65488, 1245186, 24, 65486, 1245186, 16, 65484, 1507335, 18, 65484, 1507335, 21, 65483, 917511, 25, 65483, 917511, 26, 65482, 1245191, 20, 65482, 1245191, 26, 65480, 1245185, 20, 65480, 1507329, 21, 65479, 917512, 25, 65479, 917512, 24, 65478, 1245191, 22, 65478, 1507336, 23, 65477, 262152, 10, 65486, 1507330, 12, 65486, 1507330, 10, 65484, 1507335, 12, 65484, 1507335, 13, 65483, 917511, 9, 65483, 917511, 13, 65479, 917511, 9, 65479, 917511, 10, 65478, 1245191, 12, 65478, 1245191, 11, 65477, 262146, 65519, 65527, 262151, 0, 65518, 1507335, 65534, 65518, 1507335, 15, 65499, 917511, 15, 65501, 917511, 8, 65534, 1245184, 9, 65535, 262144, 11, 65535, 262144, 1, 65527, 262144, 65535, 65521, 262147, 65533, 65521, 262144, 42, 65498, 1507335, 44, 65498, 1507335, 46, 65504, 1245192, 45, 65505, 262152, 45, 65503, 262152, 44, 65502, 1507336, 44, 65500, 1507337, 43, 65509, 917513, 41, 65509, 917513, 41, 65499, 262153, 33, 65503, 262153, 35, 65503, 262153, 37, 65503, 262153, 33, 65505, 917513, 35, 65505, 917513, 37, 65505, 917514, 44, 65506, 1245192, 44, 65508, 1507338, 17, 65501, 917504, 17, 65499, 262144, 19, 65501, 262144)
+}
+
+[node name="Doors" type="Node3D" parent="All/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="Door" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0.5, 0.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door33" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.5, 0.5, -3.5)
+skeleton = NodePath("../../../..")
+type = 2
+
+[node name="Door4" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0.5, 4.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door25" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.5, 0.5, -25.5)
+skeleton = NodePath("../../../..")
+type = 6
+locked = true
+
+[node name="Door34" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.5, 0.5, -25.5)
+skeleton = NodePath("../../../..")
+type = 6
+is_open = true
+locked = true
+self_closing = false
+is_broken = true
+
+[node name="Door26" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.5, 0.5, -21.5)
+skeleton = NodePath("../../../..")
+breakable = true
+
+[node name="Door35" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 10.5, 0.5, -21.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="VICTORYDOOR" type="MeshInstance3D" parent="All/World/Doors" node_paths=PackedStringArray("alarmsfx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.5, 0.5, -25.5)
+mesh = SubResource("QuadMesh_5k3qc")
+skeleton = NodePath("../../../..")
+script = SubResource("GDScript_s5l6s")
+type = 6
+is_open = true
+self_closing = false
+alarmsfx = NodePath("../../../UI/Music/alarm")
+
+[node name="blocker" type="StaticBody3D" parent="All/World/Doors/VICTORYDOOR"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Doors/VICTORYDOOR/blocker"]
+shape = SubResource("BoxShape3D_0yxko")
+
+[node name="clicker" type="Area3D" parent="All/World/Doors/VICTORYDOOR" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.431877, -0.0459872, 0.00382277)
+collision_layer = 8
+collision_mask = 8
+collision_priority = 999.0
+script = ExtResource("8_f8ayq")
+max_use_distance = 1.3
+target = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Doors/VICTORYDOOR/clicker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0197571)
+shape = SubResource("BoxShape3D_1cmee")
+
+[node name="SFX" type="Node3D" parent="All/World/Doors/VICTORYDOOR"]
+
+[node name="denied" type="AudioStreamPlayer3D" parent="All/World/Doors/VICTORYDOOR/SFX"]
+stream = ExtResource("9_3tvy7")
+volume_db = -25.347
+unit_size = 1.0
+
+[node name="open" type="AudioStreamPlayer3D" parent="All/World/Doors/VICTORYDOOR/SFX"]
+stream = ExtResource("10_fx1bt")
+unit_size = 1.0
+
+[node name="close" type="AudioStreamPlayer3D" parent="All/World/Doors/VICTORYDOOR/SFX"]
+stream = ExtResource("11_cxdm2")
+unit_size = 1.0
+
+[node name="damage_1" type="AudioStreamPlayer3D" parent="All/World/Doors/VICTORYDOOR/SFX"]
+stream = ExtResource("12_ry4ka")
+
+[node name="damage_2" type="AudioStreamPlayer3D" parent="All/World/Doors/VICTORYDOOR/SFX"]
+stream = ExtResource("13_1rujq")
+
+[node name="crazyexplosion" type="AudioStreamPlayer3D" parent="All/World/Doors/VICTORYDOOR/SFX"]
+stream = ExtResource("14_d5m4l")
+
+[node name="self_close_timer" type="Timer" parent="All/World/Doors/VICTORYDOOR"]
+wait_time = 10.0
+
+[node name="PreventCloseArea" type="Area3D" parent="All/World/Doors/VICTORYDOOR"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Doors/VICTORYDOOR/PreventCloseArea"]
+shape = SubResource("BoxShape3D_api8q")
+
+[node name="Door46" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 0.5, -21.5)
+skeleton = NodePath("../../../..")
+type = 6
+breakable = true
+
+[node name="Door49" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4.5, 0.5, -15.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door50" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12.5, 0.5, -15.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door51" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 19.5, 0.5, -15.5)
+skeleton = NodePath("../../../..")
+type = 5
+breakable = true
+
+[node name="Door54" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 21.5, 0.5, -18.5)
+skeleton = NodePath("../../../..")
+type = 5
+breakable = true
+
+[node name="eng_escape_door" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -5.5, 0.5, -22.5)
+skeleton = NodePath("../../../..")
+type = 6
+locked = true
+breakable = true
+
+[node name="Door47" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4.5, 0.5, -17.5)
+skeleton = NodePath("../../../..")
+type = 6
+breakable = true
+
+[node name="Door52" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 7.5, 0.5, -17.5)
+skeleton = NodePath("../../../..")
+locked = true
+breakable = true
+
+[node name="Door55" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 7.5, 0.5, -17.5)
+skeleton = NodePath("../../../..")
+locked = true
+is_broken = true
+
+[node name="Door36" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 10.5, 0.5, -16.5)
+skeleton = NodePath("../../../..")
+type = 6
+locked = true
+
+[node name="Door37" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14.5, 0.5, -14.5)
+skeleton = NodePath("../../../..")
+type = 5
+breakable = true
+
+[node name="Door40" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 9.5, 0.5, -13.5)
+skeleton = NodePath("../../../..")
+type = 3
+
+[node name="Door41" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 3.5, 0.5, -11.5)
+skeleton = NodePath("../../../..")
+type = 4
+
+[node name="Door42" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 0.5, -12.5)
+skeleton = NodePath("../../../..")
+type = 5
+
+[node name="Door43" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.5, 0.5, -12.5)
+skeleton = NodePath("../../../..")
+type = 6
+is_broken = true
+breakable = true
+
+[node name="Door45" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.5, 0.5, -21.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door53" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.5, 0.5, -18.5)
+skeleton = NodePath("../../../..")
+type = 6
+locked = true
+
+[node name="Door44" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.5, 0.5, -8.5)
+skeleton = NodePath("../../../..")
+locked = true
+is_broken = true
+
+[node name="Door5" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 4.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door6" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 0.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door7" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.5, 0.5, 8.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door8" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0.5, 8.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="monster_reveal_door" type="MeshInstance3D" parent="All/World/Doors"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.5, 0.5, -1.5)
+mesh = SubResource("QuadMesh_05hax")
+skeleton = NodePath("../../../..")
+script = ExtResource("7_fvaei")
+locked = true
+self_closing = false
+breakable = true
+
+[node name="blocker" type="StaticBody3D" parent="All/World/Doors/monster_reveal_door"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Doors/monster_reveal_door/blocker"]
+shape = SubResource("BoxShape3D_sjjem")
+
+[node name="clicker" type="Area3D" parent="All/World/Doors/monster_reveal_door" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.431877, -0.0459872, 0.00382277)
+collision_layer = 8
+collision_mask = 8
+collision_priority = 999.0
+script = ExtResource("8_f8ayq")
+max_use_distance = 1.3
+target = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Doors/monster_reveal_door/clicker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0197571)
+shape = SubResource("BoxShape3D_lcgdj")
+
+[node name="SFX" type="Node3D" parent="All/World/Doors/monster_reveal_door"]
+
+[node name="denied" type="AudioStreamPlayer3D" parent="All/World/Doors/monster_reveal_door/SFX"]
+stream = ExtResource("9_3tvy7")
+volume_db = -25.347
+unit_size = 1.0
+
+[node name="open" type="AudioStreamPlayer3D" parent="All/World/Doors/monster_reveal_door/SFX"]
+stream = ExtResource("10_fx1bt")
+unit_size = 5.0
+
+[node name="close" type="AudioStreamPlayer3D" parent="All/World/Doors/monster_reveal_door/SFX"]
+stream = ExtResource("11_cxdm2")
+unit_size = 1.0
+
+[node name="damage_1" type="AudioStreamPlayer3D" parent="All/World/Doors/monster_reveal_door/SFX"]
+stream = ExtResource("12_ry4ka")
+
+[node name="damage_2" type="AudioStreamPlayer3D" parent="All/World/Doors/monster_reveal_door/SFX"]
+stream = ExtResource("13_1rujq")
+
+[node name="self_close_timer" type="Timer" parent="All/World/Doors/monster_reveal_door"]
+wait_time = 10.0
+
+[node name="PreventCloseArea" type="Area3D" parent="All/World/Doors/monster_reveal_door"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Doors/monster_reveal_door/PreventCloseArea"]
+shape = SubResource("BoxShape3D_4nhb2")
+
+[node name="Door2" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 0.5, -5.5)
+skeleton = NodePath("../../../..")
+type = 1
+
+[node name="Door10" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.5, 0.5, -7.5)
+skeleton = NodePath("../../../..")
+
+[node name="door_eng_breal" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 0.5, -9.5)
+skeleton = NodePath("../../../..")
+type = 4
+
+[node name="DoorBreaker" type="Area3D" parent="All/World/Doors/door_eng_breal" node_paths=PackedStringArray("target", "spawner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382612, 0, -0.0516338)
+visible = false
+script = SubResource("GDScript_wmkqs")
+target = NodePath("..")
+spawner = NodePath("../../../MonsterSpawners/eng_door_monster")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Doors/door_eng_breal/DoorBreaker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0402541, -0.0492285, 0)
+shape = SubResource("BoxShape3D_3lfmr")
+
+[node name="Door9" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 4.5, 0.5, -7.5)
+skeleton = NodePath("../../../..")
+type = 3
+
+[node name="Door11" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 11.5, 0.5, -7.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door30" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, 12.5, 0.5, -8.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door31" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, 9.5, 0.5, -8.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door32" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, 6.5, 0.5, -4.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door27" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 11.5, 0.5, -5.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door28" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 16.5, 0.5, -5.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door29" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 16.5, 0.5, -0.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door12" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 10.5, 0.5, -0.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door14" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, 4.5, 0.5, -1.5)
+skeleton = NodePath("../../../..")
+locked = true
+is_broken = true
+
+[node name="Door15" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, -9.5, 0.5, -13.5)
+skeleton = NodePath("../../../..")
+breakable = true
+
+[node name="Door16" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, -5.5, 0.5, -13.5)
+skeleton = NodePath("../../../..")
+breakable = true
+
+[node name="Door21" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -7.5, 0.5, -15.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door22" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -7.5, 0.5, -11.5)
+skeleton = NodePath("../../../..")
+breakable = true
+
+[node name="Door23" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -7.5, 0.5, -7.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door17" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, -9.5, 0.5, -9.5)
+skeleton = NodePath("../../../..")
+
+[node name="Door18" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, -5.5, 0.5, -9.5)
+skeleton = NodePath("../../../..")
+breakable = true
+
+[node name="eng_monster_spawn_door" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, -0.5, 0.5, -10.508)
+skeleton = NodePath("../../../..")
+locked = true
+breakable = true
+
+[node name="Door24" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -3.5, 0.5, -11.5)
+skeleton = NodePath("../../../..")
+type = 4
+breakable = true
+
+[node name="Door38" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, -7.5, 0.5, -20.5)
+skeleton = NodePath("../../../..")
+type = 4
+
+[node name="Door19" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, -9.5, 0.5, -17.5)
+skeleton = NodePath("../../../..")
+breakable = true
+
+[node name="Door20" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, -5.5, 0.5, -17.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Door13" parent="All/World/Doors" instance=ExtResource("36_idomb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 16.5, 0.5, -8.5)
+skeleton = NodePath("../../../..")
+locked = true
+
+[node name="Triggers" type="Node3D" parent="All/World"]
+
+[node name="intro_door_open" type="Area3D" parent="All/World/Triggers" node_paths=PackedStringArray("target", "monster_reveal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49892, 0.502622, 6.99811)
+collision_layer = 8388608
+collision_mask = 8388608
+input_ray_pickable = false
+script = ExtResource("6_14vim")
+target = NodePath("../../Doors/monster_reveal_door")
+monster_reveal = NodePath("../monster_reveal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Triggers/intro_door_open"]
+shape = SubResource("BoxShape3D_un434")
+
+[node name="monster_reveal" type="Area3D" parent="All/World/Triggers" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49892, 0.502622, 0.99811)
+collision_layer = 8388608
+collision_mask = 8388608
+input_ray_pickable = false
+monitoring = false
+monitorable = false
+script = SubResource("GDScript_hyjde")
+target = NodePath("../../MonsterSpawners/intro_monster")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Triggers/monster_reveal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+shape = SubResource("BoxShape3D_un434")
+
+[node name="monster_reveal2" type="Area3D" parent="All/World/Triggers" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50108, 0.502622, -16.0019)
+collision_layer = 8388608
+collision_mask = 8388608
+input_ray_pickable = false
+monitorable = false
+script = SubResource("GDScript_hyjde")
+target = NodePath("../../MonsterSpawners/eng_monster")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Triggers/monster_reveal2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+shape = SubResource("BoxShape3D_un434")
+
+[node name="monster_reveal5" type="Area3D" parent="All/World/Triggers" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50108, 0.502622, -16.0019)
+collision_layer = 8388608
+collision_mask = 8388608
+input_ray_pickable = false
+monitoring = false
+monitorable = false
+script = SubResource("GDScript_hyjde")
+target = NodePath("../../MonsterSpawners/eng_monster2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Triggers/monster_reveal5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+shape = SubResource("BoxShape3D_un434")
+
+[node name="monster_reveal3" type="Area3D" parent="All/World/Triggers" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.49892, 0.502622, -22.0019)
+collision_layer = 8388608
+collision_mask = 8388608
+input_ray_pickable = false
+monitoring = false
+monitorable = false
+script = SubResource("GDScript_hyjde")
+target = NodePath("../../MonsterSpawners/esc_monster")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Triggers/monster_reveal3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+shape = SubResource("BoxShape3D_un434")
+
+[node name="monster_reveal4" type="Area3D" parent="All/World/Triggers" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4989, 0.502622, -17.0019)
+visible = false
+collision_layer = 8388608
+collision_mask = 8388608
+input_ray_pickable = false
+monitorable = false
+script = SubResource("GDScript_hyjde")
+target = NodePath("../../MonsterSpawners/esc_monster2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Triggers/monster_reveal4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+shape = SubResource("BoxShape3D_un434")
+
+[node name="captain_speech" type="Area3D" parent="All/World/Triggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4989, 0.502622, -16.0019)
+collision_layer = 8388608
+collision_mask = 8388608
+input_ray_pickable = false
+script = SubResource("GDScript_w5iy7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/Triggers/captain_speech"]
+shape = SubResource("BoxShape3D_drtut")
+
+[node name="speech" type="AudioStreamPlayer3D" parent="All/World/Triggers/captain_speech"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0)
+stream = ExtResource("16_53s38")
+volume_db = -32.231
+
+[node name="EngineeringCard" parent="All/World" instance=ExtResource("13_wlfoi")]
+type = 1
+
+[node name="EngineeringCard3" parent="All/World" instance=ExtResource("13_wlfoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.5, -23)
+type = 2
+
+[node name="EngineeringCard2" parent="All/World" instance=ExtResource("13_wlfoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -5)
+
+[node name="WorldSFX" type="Node3D" parent="All/World"]
+
+[node name="rubble" type="Sprite3D" parent="All/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.56, -5)
+pixel_size = 0.007
+billboard = 2
+texture_filter = 0
+texture = ExtResource("15_fbdg0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="All/World/rubble"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/rubble/StaticBody3D"]
+shape = SubResource("BoxShape3D_7dgde")
+
+[node name="rubble3" type="Sprite3D" parent="All/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.56, -16)
+pixel_size = 0.007
+billboard = 2
+texture_filter = 0
+texture = ExtResource("18_8xwa3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="All/World/rubble3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/rubble3/StaticBody3D"]
+shape = SubResource("BoxShape3D_7dgde")
+
+[node name="rubble2" type="Sprite3D" parent="All/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.56, -24)
+pixel_size = 0.007
+billboard = 2
+texture_filter = 0
+texture = ExtResource("15_fbdg0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="All/World/rubble2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/World/rubble2/StaticBody3D"]
+shape = SubResource("BoxShape3D_7dgde")
+
+[node name="MonsterSpawners" type="Node3D" parent="All/World"]
+
+[node name="intro_monster" type="Sprite3D" parent="All/World/MonsterSpawners" node_paths=PackedStringArray("waypoint_override")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -3)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("16_q71e7")
+script = ExtResource("17_uxarp")
+enemy = ExtResource("18_vq3nm")
+damage_override = 0.6
+agressive_override = true
+sight_range_override = 2.0
+enlarge_when_close_override = true
+think_min_override = 1.0
+think_max_override = 1.0
+current_behavior_override = 3
+waypoint_override = NodePath("waypoint")
+can_break_doors_override = true
+vanishes_override = true
+vanish_steps_override = 3
+
+[node name="waypoint" type="Sprite3D" parent="All/World/MonsterSpawners/intro_monster"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -1)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("17_4jgbj")
+script = ExtResource("18_aewtu")
+
+[node name="eng_monster" type="Sprite3D" parent="All/World/MonsterSpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -10)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("16_q71e7")
+script = ExtResource("17_uxarp")
+enemy = ExtResource("18_vq3nm")
+damage_override = 0.6
+agressive_override = true
+sight_range_override = 2.0
+enlarge_when_close_override = true
+think_min_override = 0.8
+think_max_override = 0.8
+current_behavior_override = 1
+can_break_doors_override = true
+vanishes_override = true
+vanish_steps_override = 3
+
+[node name="eng_monster2" type="Sprite3D" parent="All/World/MonsterSpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -14)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("16_q71e7")
+script = ExtResource("17_uxarp")
+enemy = ExtResource("18_vq3nm")
+damage_override = 0.6
+agressive_override = true
+sight_range_override = 2.0
+enlarge_when_close_override = true
+think_min_override = 0.7
+think_max_override = 0.7
+current_behavior_override = 1
+can_break_doors_override = true
+vanish_steps_override = 3
+
+[node name="esc_monster" type="Sprite3D" parent="All/World/MonsterSpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, -18)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("16_q71e7")
+script = ExtResource("17_uxarp")
+enemy = ExtResource("18_vq3nm")
+damage_override = 0.6
+agressive_override = true
+sight_range_override = 2.0
+enlarge_when_close_override = true
+think_min_override = 0.8
+think_max_override = 0.8
+current_behavior_override = 1
+can_break_doors_override = true
+vanish_steps_override = 3
+
+[node name="esc_monster2" type="Sprite3D" parent="All/World/MonsterSpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, -16)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("16_q71e7")
+script = ExtResource("17_uxarp")
+enemy = ExtResource("18_vq3nm")
+damage_override = 0.6
+agressive_override = true
+sight_range_override = 5.0
+enlarge_when_close_override = true
+think_min_override = 0.8
+think_max_override = 0.8
+current_behavior_override = 1
+can_break_doors_override = true
+vanishes_override = true
+vanish_steps_override = 3
+
+[node name="eng_door_monster" type="Sprite3D" parent="All/World/MonsterSpawners" node_paths=PackedStringArray("waypoint_override")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -11)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("16_q71e7")
+script = ExtResource("17_uxarp")
+enemy = ExtResource("18_vq3nm")
+damage_override = 0.6
+agressive_override = true
+enlarge_when_close_override = true
+think_min_override = 0.8
+think_max_override = 0.8
+current_behavior_override = 3
+waypoint_override = NodePath("waypoint2")
+can_break_doors_override = true
+vanishes_override = true
+vanish_steps_override = 3
+
+[node name="waypoint2" type="Sprite3D" parent="All/World/MonsterSpawners/eng_door_monster"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1)
+pixel_size = 0.0025
+billboard = 1
+texture = ExtResource("17_4jgbj")
+script = ExtResource("18_aewtu")
+
+[node name="UI" type="Node" parent="All"]
+script = ExtResource("1_sf5f5")
+
+[node name="TextureRect" type="TextureRect" parent="All/UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("16_1iep4")
+
+[node name="moveForwardButton" type="TextureButton" parent="All/UI"]
+anchors_preset = -1
+anchor_left = 0.4625
+anchor_top = 0.699074
+anchor_right = 0.538021
+anchor_bottom = 0.843518
+offset_top = 1.0
+offset_bottom = 1.0
+texture_normal = ExtResource("2_kjs1n")
+texture_pressed = ExtResource("3_numgb")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="moveLeftButton" type="TextureButton" parent="All/UI"]
+anchors_preset = -1
+anchor_left = 0.381076
+anchor_top = 0.854938
+anchor_right = 0.455729
+anchor_bottom = 1.0
+offset_left = 0.333313
+offset_top = -0.333313
+offset_right = 2.0
+offset_bottom = -1.0
+texture_normal = ExtResource("4_0fipx")
+texture_pressed = ExtResource("5_rp6b6")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="moveRightButton" type="TextureButton" parent="All/UI"]
+anchors_preset = -1
+anchor_left = 0.543403
+anchor_top = 0.856481
+anchor_right = 0.618056
+anchor_bottom = 1.00154
+offset_left = -0.333374
+offset_top = -2.0
+offset_right = 1.33325
+offset_bottom = -2.66663
+texture_normal = ExtResource("6_3qavu")
+texture_pressed = ExtResource("7_88511")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="turnleftButton" type="TextureButton" parent="All/UI"]
+anchors_preset = -1
+anchor_left = 0.381944
+anchor_top = 0.700617
+anchor_right = 0.456597
+anchor_bottom = 0.845679
+offset_left = -1.33331
+offset_top = -0.666687
+offset_right = 0.333374
+offset_bottom = -1.33331
+texture_normal = ExtResource("8_3ik43")
+texture_pressed = ExtResource("9_mbcek")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="turnrightButton" type="TextureButton" parent="All/UI"]
+anchors_preset = -1
+anchor_left = 0.544271
+anchor_top = 0.700617
+anchor_right = 0.618924
+anchor_bottom = 0.845679
+offset_left = -1.0
+offset_top = -0.666687
+offset_right = 0.666626
+offset_bottom = -1.33331
+texture_normal = ExtResource("10_8ne72")
+texture_pressed = ExtResource("11_8emi2")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="turnaroundButton" type="TextureButton" parent="All/UI"]
+anchors_preset = -1
+anchor_left = 0.462674
+anchor_top = 0.854938
+anchor_right = 0.537326
+anchor_bottom = 1.0
+offset_left = -0.333313
+offset_top = -0.333313
+offset_right = 1.33337
+offset_bottom = -1.0
+texture_normal = ExtResource("12_opr4t")
+texture_pressed = ExtResource("13_bc5pg")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="compass_up" type="TextureRect" parent="All/UI"]
+anchors_preset = -1
+anchor_right = 0.087
+anchor_bottom = 0.136
+offset_left = 372.0
+offset_top = 888.0
+offset_right = 264.96
+offset_bottom = 801.12
+texture = ExtResource("14_k1bwy")
+
+[node name="compass_down" type="TextureRect" parent="All/UI"]
+visible = false
+anchors_preset = -1
+anchor_right = 0.087
+anchor_bottom = 0.136
+offset_left = 372.0
+offset_top = 888.0
+offset_right = 264.96
+offset_bottom = 801.12
+texture = ExtResource("15_es6qo")
+
+[node name="compass_right" type="TextureRect" parent="All/UI"]
+visible = false
+anchors_preset = -1
+anchor_right = 0.087
+anchor_bottom = 0.136
+offset_left = 372.0
+offset_top = 888.0
+offset_right = 264.96
+offset_bottom = 801.12
+texture = ExtResource("16_ukjla")
+
+[node name="compass_left" type="TextureRect" parent="All/UI"]
+visible = false
+anchors_preset = -1
+anchor_right = 0.087
+anchor_bottom = 0.136
+offset_left = 372.0
+offset_top = 888.0
+offset_right = 264.96
+offset_bottom = 801.12
+texture = ExtResource("17_4bkq6")
+
+[node name="MsgBox" type="RichTextLabel" parent="All/UI"]
+visible = false
+texture_filter = 3
+anchors_preset = -1
+anchor_left = 0.632812
+anchor_top = 0.786111
+anchor_right = 0.870313
+anchor_bottom = 0.858333
+theme_override_fonts/normal_font = ExtResource("34_b1idt")
+theme_override_font_sizes/normal_font_size = 33
+text = "NOTHING!"
+metadata/_edit_use_anchors_ = true
+
+[node name="timer_box" type="ColorRect" parent="All/UI"]
+visible = false
+offset_left = 1212.0
+offset_top = 846.0
+offset_right = 1674.0
+offset_bottom = 930.0
+color = Color(0, 0, 0, 1)
+
+[node name="timertext" type="RichTextLabel" parent="All/UI"]
+visible = false
+texture_filter = 3
+anchors_preset = -1
+anchor_left = 0.632812
+anchor_top = 0.790741
+anchor_right = 0.870313
+anchor_bottom = 0.858333
+theme_override_fonts/normal_font = ExtResource("34_b1idt")
+theme_override_font_sizes/normal_font_size = 55
+bbcode_enabled = true
+text = "[center]85.000"
+script = SubResource("GDScript_fpg30")
+metadata/_edit_use_anchors_ = true
+
+[node name="colorize" type="ColorRect" parent="All/UI"]
+material = SubResource("ShaderMaterial_5a78e")
+anchors_preset = -1
+anchor_left = -0.0265625
+anchor_top = -0.0231481
+anchor_right = 1.03437
+anchor_bottom = 1.05741
+offset_right = 0.00012207
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SFX" type="Node" parent="All/UI"]
+
+[node name="msg" type="AudioStreamPlayer" parent="All/UI/SFX"]
+stream = ExtResource("19_7y546")
+volume_db = -2.81
+
+[node name="MsgboxHideTimer" type="Timer" parent="All/UI"]
+one_shot = true
+
+[node name="Music" type="Node" parent="All/UI"]
+
+[node name="ambient" type="AudioStreamPlayer2D" parent="All/UI/Music"]
+stream = ExtResource("41_es0bx")
+
+[node name="danger_close" type="AudioStreamPlayer2D" parent="All/UI/Music"]
+stream = ExtResource("43_8o5m3")
+
+[node name="chase" type="AudioStreamPlayer2D" parent="All/UI/Music"]
+stream = ExtResource("44_1qbej")
+
+[node name="escape" type="AudioStreamPlayer2D" parent="All/UI/Music"]
+stream = ExtResource("45_hqmbe")
+
+[node name="anim_ambient" type="AnimationPlayer" parent="All/UI/Music"]
+libraries = {
+"": SubResource("AnimationLibrary_xdbsf")
+}
+
+[node name="anim_danger" type="AnimationPlayer" parent="All/UI/Music"]
+libraries = {
+"": SubResource("AnimationLibrary_3e71o")
+}
+
+[node name="anim_chase" type="AnimationPlayer" parent="All/UI/Music"]
+libraries = {
+"": SubResource("AnimationLibrary_22qbx")
+}
+
+[node name="anim_escape" type="AnimationPlayer" parent="All/UI/Music"]
+libraries = {
+"": SubResource("AnimationLibrary_uu3ij")
+}
+
+[node name="alarm" type="AudioStreamPlayer2D" parent="All/UI/Music"]
+stream = ExtResource("50_dddj0")
+volume_db = -5.75
+
+[node name="player" parent="All" instance=ExtResource("21_6uejs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 0.5)
+
+[node name="crystal_spider" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, -9.5)
+
+[node name="crystal_spider2" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, -4.5)
+
+[node name="crystal_spider3" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, -1.5)
+
+[node name="crystal_spider4" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, -7.5)
+
+[node name="crystal_spider5" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0.5, -11.5)
+
+[node name="crystal_spider6" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.5, -11.5)
+
+[node name="crystal_spider7" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0.5, -14.5)
+
+[node name="crystal_spider8" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.5, -14.5)
+
+[node name="crystal_spider9" parent="All" instance=ExtResource("30_qmdge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.5, -8.5)
+
+[node name="ReactorSwitch" type="MeshInstance3D" parent="All" node_paths=PackedStringArray("target_door", "break_door", "door_buster", "monsta_reveal", "monsta_5", "door_19")]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -16, 0.5, -3.5)
+mesh = SubResource("PlaneMesh_37xri")
+skeleton = NodePath("../..")
+script = SubResource("GDScript_q6jlo")
+target_door = NodePath("../World/Doors/eng_escape_door")
+break_door = NodePath("../World/Doors/Door42")
+door_buster = NodePath("../World/Doors/door_eng_breal/DoorBreaker")
+monsta_reveal = NodePath("../World/Triggers/monster_reveal4")
+monsta_5 = NodePath("../World/Triggers/monster_reveal5")
+door_19 = NodePath("../World/Doors/Door19")
+
+[node name="Area3D" type="Area3D" parent="All/ReactorSwitch" node_paths=PackedStringArray("target")]
+script = ExtResource("8_f8ayq")
+target = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="All/ReactorSwitch/Area3D"]
+shape = SubResource("BoxShape3D_jp7fc")
+
+[node name="shutdown" type="AudioStreamPlayer3D" parent="All/ReactorSwitch"]
+transform = Transform3D(-4.37114e-08, -4.37114e-08, 1, -1, 1.91069e-15, -4.37114e-08, 0, -1, -4.37114e-08, 0, 2.84217e-14, -0.2)
+stream = ExtResource("49_7fokn")
+volume_db = -11.87
+
+[node name="backatit" type="AudioStreamPlayer3D" parent="All/ReactorSwitch"]
+stream = ExtResource("51_l21cs")
+volume_db = -6.755
+
+[node name="overload" type="AudioStreamPlayer3D" parent="All/ReactorSwitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.999998, 0)
+stream = ExtResource("55_3juro")
+volume_db = -6.755
+
+[node name="Deathtimer" type="Timer" parent="All/ReactorSwitch"]
+wait_time = 120.0
+one_shot = true
+
+[connection signal="input_event" from="All/World/Doors/VICTORYDOOR/clicker" to="All/World/Doors/VICTORYDOOR/clicker" method="_on_area_3d_input_event" flags=18]
+[connection signal="timeout" from="All/World/Doors/VICTORYDOOR/self_close_timer" to="All/World/Doors/VICTORYDOOR" method="self_close" flags=18]
+[connection signal="input_event" from="All/World/Doors/monster_reveal_door/clicker" to="All/World/Doors/monster_reveal_door/clicker" method="_on_area_3d_input_event" flags=18]
+[connection signal="timeout" from="All/World/Doors/monster_reveal_door/self_close_timer" to="All/World/Doors/monster_reveal_door" method="self_close" flags=18]
+[connection signal="input_event" from="All/World/Doors/door_eng_breal/DoorBreaker" to="All/World/Doors/door_eng_breal/DoorBreaker" method="clicked" flags=6 unbinds=5]
+[connection signal="area_entered" from="All/World/Triggers/intro_door_open" to="All/World/Triggers/intro_door_open" method="_on_area_entered"]
+[connection signal="area_entered" from="All/World/Triggers/monster_reveal" to="All/World/Triggers/monster_reveal" method="_on_area_entered"]
+[connection signal="area_entered" from="All/World/Triggers/monster_reveal2" to="All/World/Triggers/monster_reveal2" method="_on_area_entered"]
+[connection signal="area_entered" from="All/World/Triggers/monster_reveal5" to="All/World/Triggers/monster_reveal5" method="_on_area_entered"]
+[connection signal="area_entered" from="All/World/Triggers/monster_reveal3" to="All/World/Triggers/monster_reveal3" method="_on_area_entered"]
+[connection signal="area_entered" from="All/World/Triggers/monster_reveal4" to="All/World/Triggers/monster_reveal4" method="_on_area_entered"]
+[connection signal="area_entered" from="All/World/Triggers/captain_speech" to="All/World/Triggers/captain_speech" method="triggered" unbinds=1]
+[connection signal="pressed" from="All/UI/moveForwardButton" to="All/player" method="moveRelative" binds= [Vector2(1, 0)]]
+[connection signal="pressed" from="All/UI/moveLeftButton" to="All/player" method="moveRelative" binds= [Vector2(0, -1)]]
+[connection signal="pressed" from="All/UI/moveRightButton" to="All/player" method="moveRelative" binds= [Vector2(0, 1)]]
+[connection signal="pressed" from="All/UI/turnleftButton" to="All/player" method="turn" binds= [90]]
+[connection signal="pressed" from="All/UI/turnrightButton" to="All/player" method="turn" binds= [-90]]
+[connection signal="pressed" from="All/UI/turnaroundButton" to="All/player" method="turn" binds= [180]]
+[connection signal="timeout" from="All/UI/MsgboxHideTimer" to="All/UI" method="hide_msgbox"]
+[connection signal="input_event" from="All/ReactorSwitch/Area3D" to="All/ReactorSwitch/Area3D" method="_on_area_3d_input_event"]
+[connection signal="timeout" from="All/ReactorSwitch/Deathtimer" to="All/ReactorSwitch" method="kill_player"]

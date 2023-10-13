@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://8oijnm4rmmhi"]
+
+[ext_resource type="FontFile" uid="uid://bohj6l4namqhr" path="res://fonts/Ac437_PhoenixEGA_8x8.ttf" id="1_lbga7"]
+[ext_resource type="AudioStream" uid="uid://bgb16o834fwqt" path="res://sounds/music/menu.ogg" id="2_bodv3"]
+
+[sub_resource type="GDScript" id="GDScript_1qbtk"]
+script/source = "extends Button
+
+func pressed():
+	LevelSwitch.switch_to_main()
+	
+"
+
+[node name="game_over" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.05625
+anchor_top = -0.0472222
+anchor_right = 1.08073
+anchor_bottom = 1.13333
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.352778
+anchor_right = 1.0
+anchor_bottom = 1.00093
+theme_override_fonts/normal_font = ExtResource("1_lbga7")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[center]YOU DIED
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.676852
+anchor_right = 1.0
+anchor_bottom = 1.00093
+theme_override_fonts/normal_font = ExtResource("1_lbga7")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]TRY AGAIN
+----------"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.348437
+anchor_top = 0.619444
+anchor_right = 0.651042
+anchor_bottom = 0.798148
+script = SubResource("GDScript_1qbtk")
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_bodv3")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="pressed"]

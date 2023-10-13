@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://8pwvlesly0f6"]
+
+[ext_resource type="Script" path="res://scene/enemy.gd" id="1_355ur"]
+[ext_resource type="AudioStream" uid="uid://dn1qxn2fi2dsl" path="res://sounds/enemy/monsterstep.wav" id="2_xawyi"]
+[ext_resource type="AudioStream" uid="uid://cbqjd338vaawb" path="res://sounds/enemy/monsterclose.wav" id="3_h0pby"]
+[ext_resource type="AudioStream" uid="uid://cxoa41t7ccdf5" path="res://sounds/enemy/monsterattack.wav" id="4_pq8o2"]
+[ext_resource type="Texture2D" uid="uid://dk3xhmg3hjlx7" path="res://textures/enemies/crystal_spider.png" id="5_i36g2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bnh3r"]
+
+[node name="enemy" type="Node3D"]
+script = ExtResource("1_355ur")
+damage = 0.2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="LeftRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collide_with_areas = true
+
+[node name="RightRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+collide_with_areas = true
+
+[node name="BackRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1.31134e-07, 1, 0, 4.37114e-08, -3.55271e-15, -1, -1, 1.31134e-07, -4.37114e-08, 0, 0, 0)
+collide_with_areas = true
+
+[node name="ForwardRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(-2.18557e-07, -1, 0, -4.37114e-08, 1.17328e-14, -1, 1, -2.18557e-07, -4.37114e-08, 0, 0, 0)
+collide_with_areas = true
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Move" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("2_xawyi")
+volume_db = 4.348
+unit_size = 0.5
+
+[node name="Close" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_h0pby")
+unit_size = 1.5
+
+[node name="Attack" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("4_pq8o2")
+volume_db = -4.721
+unit_size = 1.5
+
+[node name="Sprite" type="Sprite3D" parent="."]
+pixel_size = 0.005
+billboard = 2
+texture_filter = 0
+texture = ExtResource("5_i36g2")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_bnh3r")
+
+[connection signal="timeout" from="Timer" to="." method="think"]

@@ -1,0 +1,148 @@
+[gd_scene load_steps=5 format=3 uid="uid://ihyoded72xuk"]
+
+[ext_resource type="Texture2D" uid="uid://bwke8xl2ypcjt" path="res://textures/youwin.png" id="1_76yr1"]
+[ext_resource type="FontFile" uid="uid://bohj6l4namqhr" path="res://fonts/Ac437_PhoenixEGA_8x8.ttf" id="2_wgwu3"]
+[ext_resource type="AudioStream" uid="uid://biwe1xjbs0eta" path="res://sounds/music/adagio.ogg" id="3_kbmja"]
+
+[sub_resource type="GDScript" id="GDScript_wnjyc"]
+script/source = "extends Node2D
+
+var scroll = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	goo()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if scroll:
+		if $CanvasLayer/creditscrawl.global_position.y  > -2259:
+			$CanvasLayer/creditscrawl.global_position += Vector2(0, -50*delta)
+
+func goo():
+	await get_tree().create_timer(7).timeout
+	$CanvasLayer/TextureRect.visible = false
+	scroll = true
+"
+
+[node name="credits" type="Node2D"]
+script = SubResource("GDScript_wnjyc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.0973958
+anchor_top = -0.161111
+anchor_right = 1.1375
+anchor_bottom = 1.26019
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1_76yr1")
+metadata/_edit_use_anchors_ = true
+
+[node name="creditscrawl" type="RichTextLabel" parent="CanvasLayer"]
+offset_top = 1197.0
+offset_right = 1920.0
+offset_bottom = 5355.0
+theme_override_fonts/normal_font = ExtResource("2_wgwu3")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]ESCAPE FROM STATION ZANGRUS[/center]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+[center]-----ART-----[/center]
+ 
+[center]RICARDO FLORIDO[/center]
+ 
+[center]AUSTIN BEAN[/center]
+ 
+ 
+ 
+ 
+ 
+[center]-----SFX-----[/center]
+ 
+[center]MACKENZIE LEROY[/center]
+ 
+ 
+ 
+ 
+ 
+[center]-----PROGRAMMING & LEVEL DESIGN-----[/center]
+ 
+[center]ADRIAN ARNETT[/center]
+ 
+ 
+ 
+ 
+[center]-----MUSIC-----[/center]
+ 
+[center]ADRIAN ARNETT[/center]
+ 
+[center]THANKS TO K.[/center]
+ 
+ 
+ 
+ 
+ 
+[center]-----GAME DESIGN & THE CAPTAIN'S VOICE-----[/center]
+ 
+[center]CONNOR STEWART[/center]
+ 
+ 
+ 
+ 
+[center]-----OTHER-----[/center]
+ 
+[center]CREDITS: ADAGIO FOR STRINGS BY SAMUEL BARBER[/center]
+ 
+ 
+[center]FONT: 'Ac437_PhoenixEGA' - VileR[/center]
+ 
+[center]https://int10h.org/oldschool-pc-fonts/[/center]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+[center]CREATED FOR THE SEPTEMBER 2023 NSJS GAME JAM[/center]
+ 
+[center]THEME: LABYRINTH[/center]
+ 
+ 
+[center]THANK YOU FOR ESCAPING[/center]"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kbmja")
+autoplay = true

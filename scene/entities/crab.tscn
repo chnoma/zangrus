@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxh0r6eifvvq6"]
+
+[ext_resource type="Script" path="res://scene/enemy.gd" id="1_sjoiq"]
+[ext_resource type="AudioStream" uid="uid://2o5w1lqafrhc" path="res://sounds/enemy/crab/crabstep2.wav" id="2_dgg46"]
+[ext_resource type="AudioStream" uid="uid://cbqjd338vaawb" path="res://sounds/enemy/monsterclose.wav" id="3_do7he"]
+[ext_resource type="AudioStream" uid="uid://txii1t7ym37f" path="res://sounds/enemy/crab/crabattack.wav" id="4_gt1dm"]
+[ext_resource type="Texture2D" uid="uid://rh5053jjcbnk" path="res://textures/enemies/giant_enemy_crab.png" id="5_n1umc"]
+[ext_resource type="AudioStream" uid="uid://bi8g5bblbi0el" path="res://sounds/enemy/crab/crabscream.wav" id="5_xdkku"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bnh3r"]
+
+[node name="crab" type="Node3D"]
+script = ExtResource("1_sjoiq")
+damage = 0.5
+agressive = true
+sight_range = 2
+current_behavior = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="LeftRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collide_with_areas = true
+
+[node name="RightRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+collide_with_areas = true
+
+[node name="BackRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1.31134e-07, 1, 0, 4.37114e-08, -3.55271e-15, -1, -1, 1.31134e-07, -4.37114e-08, 0, 0, 0)
+collide_with_areas = true
+
+[node name="ForwardRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(-2.18557e-07, -1, 0, -4.37114e-08, 1.17328e-14, -1, 1, -2.18557e-07, -4.37114e-08, 0, 0, 0)
+collide_with_areas = true
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Move" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("2_dgg46")
+unit_size = 3.0
+
+[node name="Close" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("3_do7he")
+unit_size = 1.5
+
+[node name="Attack" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("4_gt1dm")
+unit_size = 1.5
+
+[node name="PlayerSpotted" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("5_xdkku")
+volume_db = 4.348
+unit_size = 0.5
+
+[node name="Sprite" type="Sprite3D" parent="."]
+pixel_size = 0.005
+billboard = 2
+texture_filter = 0
+texture = ExtResource("5_n1umc")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 512
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_bnh3r")
+
+[connection signal="timeout" from="Timer" to="." method="think" flags=18]
